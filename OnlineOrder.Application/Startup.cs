@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.OpenApi.Models;
 using OnlineOrder.Application.HttpSession;
+using OnlineOrder.Application.Services.OrderService;
+using OnlineOrder.Application.Services.UserService;
 using OnlineOrder.Domain.DAOs;
 using OnlineOrder.Infrastructure.Interfaces;
 using OnlineOrder.Infrastructure.Services;
@@ -75,10 +77,9 @@ public class Startup
         services.TryAddScoped<IUserSession, UserSession>();
         services.TryAddScoped<IUnitOfWork, UnitOfWork>();
 
-        /*services.AddScoped<IOrderRepository, OrderRepository>();
-        //services.AddScoped<IUnitOfWorkFactory, UnitOfWorkFactory>();
-        services.AddScoped<IOrderService, OrderService>();*/
-        
+        services.AddScoped<IOrderService, OrderService>();
+        services.AddScoped<UnitOfWorkBuilder, UnitOfWorkBuilder>();
+
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

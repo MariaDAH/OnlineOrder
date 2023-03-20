@@ -66,7 +66,7 @@ public class OrderController : ControllerBase
     /// <param name="order"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    [HttpPost("orders")]
+    [HttpPost("orders/order")]
     [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
